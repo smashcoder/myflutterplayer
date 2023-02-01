@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:musicplayer/song_screen.dart';
+import '../model/song_model.dart';
 
 class SongCard extends StatelessWidget {
   const SongCard({
@@ -32,7 +32,7 @@ class SongCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
                     image: AssetImage(
-                        song.coverUrl
+                        song.coverUrl,
                     ),
                     fit: BoxFit.cover,
                   )

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'song_screen.dart';
-import 'widget.dart';
+import '../model/playlist_model.dart';
+import '../widgets/widget.dart';
+import '../model/song_model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -8,6 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Song> songs = Song.songs;
+    List<Playlist> playlists = Playlist.playlists;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -34,8 +36,12 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     const SectionHeader(title: 'Playlists'),
                     ListView.builder(
+                      padding: const EdgeInsets.only(top: 20),
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: playlists.length,
                         itemBuilder: (context, index){
-
+                          return PlaylistCard(playlists: playlists[index]);
                         }
                     ),
                   ],
