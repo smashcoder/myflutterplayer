@@ -17,11 +17,11 @@ class SongCard extends StatelessWidget {
         Get.toNamed('/song', arguments: song);
       },
       child: Container(
-        alignment: Alignment.bottomCenter,
         margin: const EdgeInsets.only(
             right: 10
         ),
         child: Stack(
+          alignment: Alignment.bottomCenter,
           children: [
             Container(
               width: MediaQuery
@@ -50,7 +50,7 @@ class SongCard extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
-                  color: Colors.white.withOpacity(0.8)
+                  color: Colors.white.withOpacity(1.0)
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -75,7 +75,7 @@ class SongCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Icon(
+                  const Icon(
                     Icons.play_circle,
                     color: Colors.deepPurple,
                   )

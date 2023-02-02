@@ -14,7 +14,7 @@ class PlaylistCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Get.toNamed('/playlists', arguments: playlists);
+        Get.toNamed('/playlist', arguments: playlists);
       },
       child: Container(
         height: 75,

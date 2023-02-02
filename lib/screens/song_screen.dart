@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import '../model/song_model.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart' as rxdart;
-
 import '../widgets/widget.dart';
 
 class SongScreen extends StatefulWidget {
@@ -14,37 +13,37 @@ class SongScreen extends StatefulWidget {
 }
 
 class _SongScreenState extends State<SongScreen> {
+  AudioPlayer audioPlayer = AudioPlayer();
+  Song song = Get.arguments ?? Song.songs[0];
+
+  @override
+  void initState(){
+    super.initState();
+    ConcatenatingAudioSource(
+      children: [
+        AudioSource.uri(Uri.parse('asset:///${song.url}')),
+      ],
+    );
+  }
+  //initState();
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
+  }
+  //dispose();
+
+  Stream<SeekBarData> get _seekBarDataStream =>
+      rxdart.Rx.combineLatest2<Duration, Duration?, SeekBarData>(
+          audioPlayer.positionStream,
+          audioPlayer.durationStream,
+              (Duration position, Duration? duration,){
+            return SeekBarData(position, duration ?? Duration.zero,);
+          }
+      );
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer();
-    Song song = Get.arguments ?? Song.songs[0];
-
-    @override
-    void initState(){
-      super.initState();
-      ConcatenatingAudioSource(
-        children: [
-          AudioSource.uri(Uri.parse('asset:///${song.url}'))
-        ]
-      );
-    }
-
-    @override
-    void dispose() {
-      audioPlayer.dispose();
-      super.dispose();
-    }
-
-    /*Stream<SeekBarData> get _seekBarDataStream =>
-    rxdart.Rx.combineLatest2<Duration, Duration, SeekBarData>(
-      audioPlayer.positionStream,
-      audioPlayer.durationStream,
-        (Duration position, Duration? duration,){
-        return SeekBarData(position, duration ?? Duration.zero,);
-        }
-    );
-
-     */
 
     return Scaffold(
       appBar: AppBar(
@@ -63,7 +62,7 @@ class _SongScreenState extends State<SongScreen> {
           _MusicPlayer(
               audioPlayer: audioPlayer,
               song: song,
-              /*seekBarDataStream: _seekBarDataStream,*/
+              seekBarDataStream: _seekBarDataStream,
           ),
         ],
       ),
@@ -76,12 +75,12 @@ class _MusicPlayer extends StatelessWidget {
     Key? key,
     required this.audioPlayer,
     required this.song,
-    /*required Stream<SeekBarData> seekBarDataStream,*/
-  }) : /*_seekBarDataStream = seekBarDataStream,*/
+    required Stream<SeekBarData> seekBarDataStream,
+  }) : _seekBarDataStream = seekBarDataStream,
         super(key: key);
 
   final AudioPlayer audioPlayer;
-  /*final Stream<SeekBarData> _seekBarDataStream;*/
+  final Stream<SeekBarData> _seekBarDataStream;
   final Song song;
 
   @override
@@ -109,7 +108,7 @@ class _MusicPlayer extends StatelessWidget {
           ),
           const SizedBox(height: 30,),
           StreamBuilder<SeekBarData>(
-              /*stream: _seekBarDataStream,*/
+              stream: _seekBarDataStream,
               builder:
               (context, snapshot){
               final positionData = snapshot.data;

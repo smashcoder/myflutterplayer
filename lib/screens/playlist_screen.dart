@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../model/playlist_model.dart';
 
-class PlayListScreen extends StatelessWidget {
-  const PlayListScreen({Key? key}) : super(key: key);
+class PlaylistScreen extends StatelessWidget {
+  const PlaylistScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -15,26 +15,26 @@ class Song{
     Song(
       title: ' Dildaara',
       description: 'Movie Song',
-      url: 'https://pagalfree.com/musics/128-Dildaara%20(Stand%20By%20Me)%20-%20Ra-One%20128%20Kbps.mp3ic.youtube.com/watch?v=DGgz_C2rn68&feature=share',
-      coverUrl: 'https://lh3.googleusercontent.com/ev2blQxLfdvHD_M6CqkMo_7xmIB_RhcZ6bQ0Aax-txvXmulVXodOSI5L_xumqOq3AUMgp1464tUQLs9QIg=w544-h544-l90-rj',
+      url: 'assets/music/Dildara.mp3',
+      coverUrl: 'assets/images/album art.jpeg',
     ),
     Song(
         title: ' Dildaara',
         description: 'Movie Song',
-        url: 'https://pagalfree.com/musics/128-Dildaara%20(Stand%20By%20Me)%20-%20Ra-One%20128%20Kbps.mp3ic.youtube.com/watch?v=DGgz_C2rn68&feature=share',
-        coverUrl: 'https://lh3.googleusercontent.com/ev2blQxLfdvHD_M6CqkMo_7xmIB_RhcZ6bQ0Aax-txvXmulVXodOSI5L_xumqOq3AUMgp1464tUQLs9QIg=w544-h544-l90-rj'
+        url: 'assets/music/Dildara.mp3',
+        coverUrl: 'assets/images/album art.jpeg',
     ),
     Song(
         title: ' Dildaara',
         description: 'Movie Song',
-        url: 'https://pagalfree.com/musics/128-Dildaara%20(Stand%20By%20Me)%20-%20Ra-One%20128%20Kbps.mp3ic.youtube.com/watch?v=DGgz_C2rn68&feature=share',
-        coverUrl: 'https://lh3.googleusercontent.com/ev2blQxLfdvHD_M6CqkMo_7xmIB_RhcZ6bQ0Aax-txvXmulVXodOSI5L_xumqOq3AUMgp1464tUQLs9QIg=w544-h544-l90-rj'
+        url: 'assets/music/Dildara.mp3',
+        coverUrl: 'assets/images/album art.jpeg',
     ),
     Song(
         title: ' Dildaara',
         description: 'Movie Song',
-        url: 'https://pagalfree.com/musics/128-Dildaara%20(Stand%20By%20Me)%20-%20Ra-One%20128%20Kbps.mp3ic.youtube.com/watch?v=DGgz_C2rn68&feature=share',
-        coverUrl: 'https://lh3.googleusercontent.com/ev2blQxLfdvHD_M6CqkMo_7xmIB_RhcZ6bQ0Aax-txvXmulVXodOSI5L_xumqOq3AUMgp1464tUQLs9QIg=w544-h544-l90-rj'
+        url: 'assets/music/Dildara.mp3',
+        coverUrl: 'assets/images/album art.jpeg',
     ),
   ];
 }

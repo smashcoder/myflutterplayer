@@ -21,7 +21,8 @@ class SeekBar extends StatefulWidget {
     required this.position,
     required this.duration,
     required this.onChanged,
-    this.onChangeEnd, required OnChangeEnd})
+    this.onChangeEnd,
+    required OnChangeEnd})
       : super(key: key);
 
   @override
@@ -72,13 +73,11 @@ class _SeekBarState extends State<SeekBar> {
                 setState(() {
                   _dragValue = value;
                 });
-                if(widget.onChanged != null){
-                  widget.onChanged!(
-                    Duration
-                      (milliseconds: value.round()
-                    ),
-                  );
-                }
+                widget.onChanged!(
+                  Duration
+                    (milliseconds: value.round()
+                  ),
+                );
               },
             onChangeEnd: (value) {
                 if(widget.onChangeEnd != null) {
