@@ -22,6 +22,7 @@ class _SongScreenState extends State<SongScreen> {
     ConcatenatingAudioSource(
       children: [
         AudioSource.uri(Uri.parse('asset:///${song.url}')),
+        AudioSource.uri(Uri.parse('asset:///${Song.songs[0].url}')),
       ],
     );
   }
@@ -35,7 +36,7 @@ class _SongScreenState extends State<SongScreen> {
   //dispose();
 
   Stream<SeekBarData> get _seekBarDataStream =>
-      rxdart.Rx.combineLatest2<Duration, Duration?, SeekBarData>(
+      rxdart.Rx.combineLatest2<Duration, Duration? , SeekBarData>(
           audioPlayer.positionStream,
           audioPlayer.durationStream,
               (Duration position, Duration? duration,){
@@ -115,7 +116,7 @@ class _MusicPlayer extends StatelessWidget {
                 return SeekBar(
                     position: positionData?.position ?? Duration.zero,
                     duration: positionData?.duration ?? Duration.zero,
-                    OnChangeEnd: audioPlayer.seek,
+                    onChangeEnd: audioPlayer.seek,
                     onChanged: (Duration value) {  },
                 );
               }
